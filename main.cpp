@@ -1,11 +1,9 @@
 #include "Fsm.h"
 
-
-
-int main ()
-{   
+int main()
+{
     Fsm fsm;
     fsm.Main();
-    
+
     return 0;
 }
