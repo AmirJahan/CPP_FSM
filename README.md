@@ -79,6 +79,3 @@ make
 
 ---
 
-## C++ Finite State Machine Visualization Image Generation Prompt
-
-A sophisticated visualization of a Finite State Machine displayed on a 10x20 grid of perfectly aligned square nodes. Each node glows with its state color: crisp white for Idle, dark charcoal for Blocked obstacles, warm yellow for actively Exploring cells, soft grey for Visited nodes, vibrant green for the Goal destination, and bright blue for the Start position. Several nodes are caught mid-transition, displaying beautiful color gradients as they smoothly interpolate between states. Thin connection lines link adjacent nodes suggesting traversal possibilities. The grid floats against a dark minimalist background with subtle grid lines extending into the void. A state diagram overlay in the corner shows the FSM logic with circular state nodes and directional arrows. Particle effects trail behind transitioning nodes. The aesthetic blends computer science education with modern visualization art—clean geometric precision meets dynamic animation. C++ code snippets fade into the background like watermarks. Keyboard icons (R, B, ESC) float nearby indicating interactivity. Style: technical visualization, educational software quality, Raylib game engine aesthetic, suitable for computer science documentation.
