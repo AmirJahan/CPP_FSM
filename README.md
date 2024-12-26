@@ -1,52 +1,78 @@
-# CPP_FSM
+# C++ Finite State Machine Visualization
 
-A C++ project demonstrating a centralized Finite State Machine (FSM) usage with a grid-based visualization using [Raylib](https://www.raylib.com/).
+A C++ educational project demonstrating Finite State Machine (FSM) implementation with interactive grid-based visualization using Raylib.
 
 ## Overview
 
-This project visualizes a grid of nodes where each node can be in various states (Idle, Blocked, Exploring, Visited, Goal, Start). It demonstrates how to manage state transitions and visualize them using Raylib. The application includes a random grid generator and interactive state changes.
+This application creates a 10x20 grid of nodes where each node can transition between different states with smooth animated color changes. Watch state transitions happen in real-time as you interact with the grid.
 
 ## Features
 
-- **Grid Visualization**: A grid of nodes representing different states.
-- **Finite State Machine**: Nodes transition between states such as Idle, Blocked, Exploring, Visited, Goal, and Start.
-- **Visual Transitions**: Smooth color interpolation when nodes change states.
-- **Random Generation**: Randomly generates blocked nodes and places Start/Goal nodes.
+- **Grid Visualization**: 10 rows × 20 columns of 50×50 pixel nodes
+- **Six Node States** with distinct colors:
+  | State | Color |
+  |-------|-------|
+  | Idle | White |
+  | Blocked | Dark Gray |
+  | Exploring | Yellow |
+  | Visited | Light Gray |
+  | Goal | Green |
+  | Start | Blue |
+- **Smooth Transitions**: 1-second linear color interpolation between states
+- **Random Generation**: 20 blocked nodes placed randomly on restart
+- **Interactive Controls**: Keyboard-driven grid manipulation
 
 ## Controls
 
-- **`R`**: Restart / Regenerate the grid with new random blocked nodes and positions.
-- **`B`**: Move the **Goal** node to a new random location. This triggers a visual transition from the old goal to the new one.
+| Key | Action |
+|-----|--------|
+| `R` | Restart - regenerate grid with new random positions |
+| `B` | Move Goal node to new random location (animated) |
+| `ESC` | Close application |
 
-## Dependencies
+## Tech Stack
 
-- **C++ Compiler**: (e.g., g++, clang++) supporting C++14 or later.
-- **Raylib**: A simple and easy-to-use library to enjoy videogames programming.
+- **Language**: C++ (C++14 or later)
+- **Graphics**: [Raylib](https://www.raylib.com/)
+- **Build**: Makefile or direct g++ compilation
+- **IDE**: VS Code (workspace config included)
 
-## Build Instructions
+## Project Structure
 
-Ensure you have Raylib installed on your system.
+```
+CPP_FSM/
+├── main.cpp        # Entry point
+├── Fsm.h           # FSM class header (grid constants, methods)
+├── Fsm.cpp         # Main loop, grid generation, input handling
+├── Node.h          # Node struct with state machine logic
+├── Makefile        # Build configuration
+└── .vscode/        # VS Code settings
+```
 
-### Using g++ (Terminal)
+## Building & Running
 
-You can compile the project directly using `g++`. Example command:
+### Prerequisites
+- C++ compiler (g++, clang++)
+- Raylib library installed
 
+### Using g++
 ```bash
 g++ main.cpp Fsm.cpp -o fsm -lraylib -std=c++14
+./fsm
 ```
-
-*Note: You may need to link additional libraries depending on your OS (e.g., `-lGL -lm -lpthread -ldl -lrt -lX11` on Linux).*
 
 ### Using Makefile
-
-A `Makefile` is included in the repository. If correctly configured for your system, you can simply run:
-
 ```bash
 make
+./main
 ```
 
-## Code Structure
+> **Note**: On Linux, you may need additional flags: `-lGL -lm -lpthread -ldl -lrt -lX11`
 
-- **`main.cpp`**: Entry point of the application.
-- **`Fsm.h` / `Fsm.cpp`**: Manages the main application loop, grid generation, and input handling.
-- **`Node.h`**: Defines the `Node` structure, including state management (`NodeState` enum: Idle, Blocked, Exploring, Visited, Goal, Start) and visual rendering logic.
+## How It Works
+
+1. **Initialization**: Creates 1000×500 window at 60 FPS
+2. **Grid Setup**: Places blocked, start, and goal nodes randomly
+3. **Main Loop**: Renders nodes and handles keyboard input
+4. **State Transitions**: Nodes animate smoothly using `LerpColor()` interpolation
+5. **Reset**: Press `R` to regenerate with new random configuration
