@@ -1,11 +1,11 @@
-#include "Ai.h"
+#include "Fsm.h"
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
 
-void Ai::Main()
+void Fsm::Main()
 {
     InitWindow(1000, 500, "AI - Pathfinding");
 
@@ -25,7 +25,7 @@ void Ai::Main()
     CloseWindow();
 }
 
-Node* Ai::GetRandomNode()
+Node* Fsm::GetRandomNode()
 {
     int randRow = GetRandomValue(0, (int)(grid.size()) - 1);
     int randCol = GetRandomValue(0, (int)(grid[randRow].size()) - 1);
@@ -40,7 +40,7 @@ Node* Ai::GetRandomNode()
 }
 
 
-Node* Ai::GetGoalNode()
+Node* Fsm::GetGoalNode()
 {
     for (int i = 0; i < (int)(grid.size()); i++)
         for (int j = 0; j < (int)(grid[i].size()); j++)
@@ -52,7 +52,7 @@ Node* Ai::GetGoalNode()
 
 
 
-void Ai::Start()
+void Fsm::Start()
 {
     grid.clear();
     for (int row = 0; row < ROWS; row++)
@@ -79,7 +79,7 @@ void Ai::Start()
     GetRandomNode()->SetState(NodeState::Goal); // FSM
 }
 
-void Ai::UpdateAndDraw()
+void Fsm::UpdateAndDraw()
 {
     for (int i = 0; i < (int)(grid.size()); i++)
         for (int j = 0; j < (int)(grid[i].size()); j++)

@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Ai
+class Fsm
 {
 public:
 #define ROWS 10
@@ -28,7 +28,6 @@ public:
 
     // FSM
     Node* GetRandomNode();
-    Node* GetFirstBlockedNode();
     Node* GetGoalNode();
 
 };

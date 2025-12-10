@@ -1,11 +1,11 @@
-#include "Ai.h"
+#include "Fsm.h"
 
 
 
 int main ()
 {   
-    Ai ai;
-    ai.Main();
+    Fsm fsm;
+    fsm.Main();
     
     return 0;
 }
